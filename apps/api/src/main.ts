@@ -4,10 +4,10 @@
  */
 
 import { urlencoded } from 'body-parser';
-import cors from 'cors';
-import express from 'express';
+import * as cors from 'cors';
+import * as express from 'express';
 import { Request } from 'express-serve-static-core';
-import morgan from 'morgan';
+import * as morgan from 'morgan';
 
 import { pokemon } from './data';
 
