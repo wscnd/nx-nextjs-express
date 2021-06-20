@@ -28,6 +28,9 @@
     "next-pokemon-e2e": {
       "tags": [],
       "implicitDependencies": ["next-pokemon"]
+    },
+    "shared-types": {
+      "tags": []
     }
   }
 }
