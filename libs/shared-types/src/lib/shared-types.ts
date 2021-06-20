@@ -1,7 +1,3 @@
-export function sharedTypes(): string {
-  return 'shared-types';
-}
-
 export interface Pokemon {
   id: number;
   name: {
