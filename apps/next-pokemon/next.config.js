@@ -7,4 +7,7 @@ module.exports = withNx({
     // See: https://github.com/gregberge/svgr
     svgr: true,
   },
+  env: {
+    API: process.env.API,
+  },
 });
