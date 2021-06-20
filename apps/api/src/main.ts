@@ -3,12 +3,19 @@
  * This is only a minimal backend to get started.
  */
 
-import * as express from 'express';
+import { urlencoded } from 'body-parser';
+import cors from 'cors';
+import express from 'express';
 import { Request } from 'express-serve-static-core';
+import morgan from 'morgan';
 
 import { pokemon } from './data';
 
 const app = express();
+
+app.use(cors());
+app.use(morgan('dev'));
+app.use(urlencoded({ extended: true }));
 
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to api!' });
