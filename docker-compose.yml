@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  html:
+    image: html
+    environment:
+      - API=http://localhost:8080
+      - PORT=3334
+    ports:
+      - '80:3334'
+    depends_on:
+      - api
+  api:
+    image: api
+    ports:
+      - '8080:3333'
