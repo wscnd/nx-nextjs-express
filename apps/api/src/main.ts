@@ -40,7 +40,7 @@ app.get(
 
 const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {
-  console.log('listening at port', process.env.PORT);
-  console.log(`Listening at ${process.env.API}/`);
+  console.log('port being used:', process.env.PORT);
+  console.log(`api url: ${process.env.API}/`);
 });
 server.on('error', console.error);
