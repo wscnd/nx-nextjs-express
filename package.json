@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "nx": "nx",
-    "start": "nx serve",
-    "build": "nx build",
+    "start": "node dist/api/main.js",
+    "build": "nx run api:build --prod",
     "start:both": "nx run-many --target=serve --projects=next-pokemon,api --parallel=true",
     "build:both": "nx run-many --target=build --projects=next-pokemon,api --parallel=true",
     "start:node": "node dist/apps/api/main.js",
