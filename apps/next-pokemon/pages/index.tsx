@@ -5,6 +5,7 @@ import React, {
 } from 'react';
 
 import { GetServerSideProps } from 'next';
+import getConfig from 'next/config';
 
 import type {
   PageProps,
@@ -20,7 +21,15 @@ export function Index({ pokemon: initialPokemon, q }: PageProps) {
 
   useEffect(() => {
     async function fetchData(search: string) {
-      const response = await fetch(process.env.API + `/search?q=${search}`);
+      const { publicRuntimeConfig } = getConfig();
+      console.log('public runtime port', publicRuntimeConfig.PORT);
+      console.log('public runtime api', publicRuntimeConfig.API);
+      // console.log('port being used:', process.env.PORT);
+      // console.log(`api url: ${process.env.API}/`);
+      // const response = await fetch(process.env.API + `/search?q=${search}`);
+      const response = await fetch(
+        publicRuntimeConfig.API + `/search?q=${search}`
+      );
       const data = await response.json();
       setPokemon(data);
     }
@@ -53,7 +62,11 @@ export const getServerSideProps: GetServerSideProps<
   let pokemon = [];
 
   if (query.q) {
-    const response = await fetch(process.env.API + `/search?q=${query.q}`);
+    const { serverRuntimeConfig } = getConfig();
+    const response = await fetch(
+      serverRuntimeConfig.API + `/search?q=${query.q}`
+    );
+    // const response = await fetch(process.env.API + `/search?q=${query.q}`);
     const data = await response.json();
     pokemon = data;
   }
