@@ -17,7 +17,7 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(urlencoded({ extended: true }));
 
-app.get('/api', (req, res) => {
+app.get('/', (req, res) => {
   res.send({ message: 'Welcome to api!' });
 });
 
@@ -40,6 +40,7 @@ app.get(
 
 const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {
-  console.log(`Listening at ${process.env.API}`);
+  console.log('listening at port', process.env.PORT);
+  console.log(`Listening at ${process.env.API}/`);
 });
 server.on('error', console.error);
