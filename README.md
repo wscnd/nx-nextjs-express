@@ -6,6 +6,8 @@ API is being served at [Heroku](https://pokemon-api-200621.herokuapp.com/).
 
 App can be seen at [Vercel](https://nx-nextjs-express.vercel.app/?q=cat).
 
+It can be deployed locally with Docker by running `npm run docker:build` & `npm run docker:start`.
+
 ## Commands to remember
 
 Run `yarn create nx-workspace --package-manager=yarn` for yarn or `npx create nx-workspace` for npm to start a new project.
